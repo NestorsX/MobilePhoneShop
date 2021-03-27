@@ -23,10 +23,10 @@ namespace MobilePhoneShop
         {
             InitializeComponent();
             Closing += OnWindowClosing;
-            acdb.Insert($"INSERT INTO [dbo].[данные пользователей] (Имя, e-mail, ДатаРегистрации, ДатаПоследнегоДоступа ) VALUES ('Вася','ksh@gmail.com','{DateTime.Now}','{DateTime.Now}')");
         }
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
+            acdb.Insert($"INSERT INTO данныеПользователей (Имя, [e-mail], ДатаРегистрации) VALUES ('Вася','ksh@gmail.com', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");
             Application.Current.MainWindow.Show();
         }
     }

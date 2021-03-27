@@ -5,30 +5,34 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MobilePhoneShop
 {
     class AccessToDB
     {
-        public DataTable Select(string selectSQL)
+        string connectionString = @"Data Source=ASUSROG;Initial Catalog=MobilePhoneDB;Integrated Security=True"; //подключение к БД
+        public DataTable Select(string selectSQL) // select запрос
         {
-            DataTable dataTable = new DataTable("dataBase");                // создаём таблицу в приложении
-                                                                            // подключаемся к базе данных
-            SqlConnection sqlConnection = new SqlConnection("server=ASUSROG;Trusted_Connection=Yes;DataBase=MobilePhoneDB;");
-            sqlConnection.Open();                                           // открываем базу данных
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = selectSQL;                             // присваиваем команде текст
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); // создаём обработчик
-            sqlDataAdapter.Fill(dataTable);                                 // возращаем таблицу с результатом
-            return dataTable;
+            DataTable dataTable = new DataTable("dataBase");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(selectSQL, connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                sqlDataAdapter.Fill(dataTable);
+            }
+            return dataTable; // результат select запроса
         }
-        public void Insert(string insertSQL)
+        public void Insert(string insertSQL) // insert запрос
         {
-            SqlConnection sqlConnection = new SqlConnection("server=ASUSROG;Trusted_Connection=Yes;DataBase=MobilePhoneDB;");
-            sqlConnection.Open();                                           // открываем базу данных
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = insertSQL;                             // присваиваем команде текст
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); // создаём обработчик
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(insertSQL, connection);
+                int number = command.ExecuteNonQuery();
+                MessageBox.Show("Добавлено объектов: " + number);
+            }
         }
     }
 }

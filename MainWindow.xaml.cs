@@ -17,13 +17,10 @@ namespace MobilePhoneShop
 
         private void Log_in(object sender, RoutedEventArgs e)
         {
-            DataTable dt_user = acdb.Select("SELECT * FROM [dbo].[пользователи] WHERE Логин = '" + Login_TextBox.Text + "'");
-            if (dt_user.Rows.Count>0)
+            DataTable dt_user = acdb.Select("SELECT * FROM [dbo].[пользователи] WHERE [Логин] = '" + Login_TextBox.Text + "' AND [Пароль] = '" + Password_TextBox.Password + "'");
+            if (dt_user.Rows.Count > 0)
             {
-                if (dt_user.Rows[0][1].ToString() == Login_TextBox.Text && dt_user.Rows[0][2].ToString() == Password_TextBox.Password)
-                    MessageBox.Show("Авторизация выполнена");
-                else
-                    MessageBox.Show("Неверный логин или пароль");
+                MessageBox.Show("Авторизация выполнена");
             }
             else
                 MessageBox.Show("Неверный логин или пароль");
