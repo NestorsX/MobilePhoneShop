@@ -19,11 +19,13 @@ namespace MobilePhoneShop
     public partial class Register : Window
     {
         AppContext appContext;
+        AccessToDB acdb;
         public Register()
         {
             InitializeComponent();
             Closing += OnWindowClosing;
             appContext = new AppContext();
+            acdb = new AccessToDB();
         }
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
@@ -40,20 +42,21 @@ namespace MobilePhoneShop
             string secondName = SecondName_TextBox.Text;
             string thirdName = ThirdName_TextBox.Text;
             string telNumber = TelNumber_TextBox.Text;
-            if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0)
+            List<User> users = appContext.users.ToList();
+            if (users.Where(user => user.Login == login).Count() == 0)
             {
-                UserData userData = new UserData(firstName, email, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f"));
-                appContext.userDatas.Add(userData);
-                appContext.SaveChanges();
+                if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0)
+                {
+                    acdb.Insert($"INSERT INTO [users] VALUES('{login}','{password}')");
+                    acdb.Insert($"INSERT INTO [userDatas] VALUES('{secondName}', '{firstName}', '{thirdName}', '{telNumber}', '{email}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");
 
-                User user = new User(login, password);
-                appContext.users.Add(user);
-                appContext.SaveChanges();
-
-
-                Application.Current.MainWindow.Show();
-                Close();
+                    //закрытие окна регистрации
+                    Application.Current.MainWindow.Show();
+                    Close();
+                }
             }
+            else
+                MessageBox.Show("Пользователь с таким логином уже зарегистрирован");
 
         }
     }

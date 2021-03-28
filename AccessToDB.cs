@@ -31,7 +31,6 @@ namespace MobilePhoneShop
                 connection.Open();
                 SqlCommand command = new SqlCommand(insertSQL, connection);
                 int number = command.ExecuteNonQuery();
-                MessageBox.Show("Добавлено объектов: " + number);
             }
         }
     }

@@ -10,7 +10,6 @@ namespace MobilePhoneShop
     {
         public int userID { get; set; }
         private string login, password;
-        private int dataID;
         public string Login
         {
             get { return login; }
@@ -20,11 +19,6 @@ namespace MobilePhoneShop
         {
             get { return password; }
             set { password = value; }
-        }
-        public int DataID
-        {
-            get { return dataID; }
-            set { dataID = value; }
         }
         public User() { }
         public User(string login, string password)
