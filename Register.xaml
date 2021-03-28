@@ -11,9 +11,10 @@
         <Label Content="Пароль:" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Height="23"/>
         <PasswordBox x:Name="Password_TextBox" HorizontalAlignment="Left" Margin="135,68,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <Label Content="Повторите пароль:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Height="23"/>
-        <PasswordBox x:Name="Password_TextBox_Copy" HorizontalAlignment="Left" Margin="135,96,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <PasswordBox x:Name="RepeatPassword_TextBox" HorizontalAlignment="Left" Margin="135,96,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <Label Content="Электронная почта:" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="23"/>
-        <PasswordBox x:Name="Password_TextBox_Copy1" HorizontalAlignment="Left" Margin="135,124,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <Button x:Name="Register_Button" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="85,183,0,0" VerticalAlignment="Top" Width="170" Click="Register_Button_Click"/>
+        <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" Height="23" Margin="135,124,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
