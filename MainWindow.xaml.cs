@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.Linq;
 
 namespace MobilePhoneShop
 {
@@ -17,8 +18,12 @@ namespace MobilePhoneShop
 
         private void Log_in(object sender, RoutedEventArgs e)
         {
-            DataTable dt_user = acdb.Select("SELECT * FROM [dbo].[пользователи] WHERE [Логин] = '" + Login_TextBox.Text + "' AND [Пароль] = '" + Password_TextBox.Password + "'");
-            if (dt_user.Rows.Count > 0)
+            User authUser;
+            using (AppContext apc = new AppContext())
+            {
+                authUser = apc.users.Where(user => user.Login == Login_TextBox.Text && user.Password == Password_TextBox.Password).FirstOrDefault();
+            }
+            if(authUser!=null)
             {
                 MessageBox.Show("Авторизация выполнена");
             }
