@@ -13,8 +13,16 @@
         <Label Content="Повторите пароль:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Height="23"/>
         <PasswordBox x:Name="RepeatPassword_TextBox" HorizontalAlignment="Left" Margin="135,96,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <Label Content="Электронная почта:" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="23"/>
-        <Button x:Name="Register_Button" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="85,183,0,0" VerticalAlignment="Top" Width="170" Click="Register_Button_Click"/>
+        <Button x:Name="Register_Button" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="85,331,0,0" VerticalAlignment="Top" Width="170" Click="Register_Button_Click"/>
         <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" Height="23" Margin="135,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Имя:" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" Height="23"/>
+        <TextBox x:Name="FirstName_TextBox" HorizontalAlignment="Left" Height="23" Margin="135,152,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Height="23"/>
+        <TextBox x:Name="SecondName_TextBox" HorizontalAlignment="Left" Height="23" Margin="135,180,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Отчество:" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Height="23"/>
+        <TextBox x:Name="ThirdName_TextBox" HorizontalAlignment="Left" Height="23" Margin="135,208,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Номер телефона:" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Height="23"/>
+        <TextBox x:Name="TelNumber_TextBox" HorizontalAlignment="Left" Height="23" Margin="135,236,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

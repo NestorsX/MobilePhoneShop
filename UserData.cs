@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace MobilePhoneShop
 {
     class UserData
     {
-        private int dataId { get; set; }
+        [Key]
+        public int dataID { get; set; }
         private string firstName, secondName, thirdName, telNumber, email, registerDate, lastAccessDate;
-        private int bankCardId { get; set; }
         public string FirstName
         {
             get { return firstName; }

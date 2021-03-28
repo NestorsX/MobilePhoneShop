@@ -19,17 +19,14 @@ namespace MobilePhoneShop
     public partial class Register : Window
     {
         AppContext appContext;
-        AccessToDB acdb;
         public Register()
         {
             InitializeComponent();
             Closing += OnWindowClosing;
-            acdb = new AccessToDB();
             appContext = new AppContext();
         }
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
-            acdb.Insert($"INSERT INTO данныеПользователей (Имя, [e-mail], ДатаРегистрации) VALUES ('Вася','ksh@gmail.com', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");
             Application.Current.MainWindow.Show();
         }
 
@@ -39,12 +36,25 @@ namespace MobilePhoneShop
             string password = Password_TextBox.Password;
             string repeatPassword = RepeatPassword_TextBox.Password;
             string email = Email_TextBox.Text;
-            int dataID = 0;
+            string firstName = FirstName_TextBox.Text;
+            string secondName = SecondName_TextBox.Text;
+            string thirdName = ThirdName_TextBox.Text;
+            string telNumber = TelNumber_TextBox.Text;
+            if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0)
+            {
+                UserData userData = new UserData(firstName, email, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f"));
+                appContext.userDatas.Add(userData);
+                appContext.SaveChanges();
 
-            User user = new User(login, password, dataID);
-            
-            appContext.Users.Add(user);
-            appContext.SaveChanges();
+                User user = new User(login, password);
+                appContext.users.Add(user);
+                appContext.SaveChanges();
+
+
+                Application.Current.MainWindow.Show();
+                Close();
+            }
+
         }
     }
 }
