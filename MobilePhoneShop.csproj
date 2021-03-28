@@ -73,12 +73,15 @@
     </ApplicationDefinition>
     <Compile Include="AccessToDB.cs" />
     <Compile Include="AppContext.cs" />
+    <Compile Include="MainForm.xaml.cs">
+      <DependentUpon>MainForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserData.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="Authorization.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -86,10 +89,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

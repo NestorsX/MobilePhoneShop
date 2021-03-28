@@ -26,6 +26,9 @@ namespace MobilePhoneShop
             if(authUser!=null)
             {
                 MessageBox.Show("Авторизация выполнена");
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+                Close();
             }
             else
                 MessageBox.Show("Неверный логин или пароль");

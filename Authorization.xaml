@@ -6,21 +6,21 @@
         xmlns:local="clr-namespace:MobilePhoneShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MobilePhoneShop.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900" MinHeight="450" MinWidth="600">
+        Title="Авторизация" Height="600" Width="900" MinHeight="450" MinWidth="600">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="bg1.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Border MinWidth="400" Margin="15,107,15,152" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20" Height="310">
+        <Border MinWidth="400" Margin="15,0,15,152" Background="White" VerticalAlignment="Bottom" Padding="30" MaxWidth="550" CornerRadius="20" Height="310">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="70" Color="ForestGreen" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="100" Color="DarkMagenta" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
                 <TextBlock Text="Магазин мобильных телефонов" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
                 <Grid Margin="0 0 0 20" Height="215">
                     <TextBox x:Name="Login_TextBox" FontSize="16" materialDesign:HintAssist.Hint="Введите логин" Margin="105,30,135,155"/>
                     <PasswordBox x:Name="Password_TextBox" FontSize="16" materialDesign:HintAssist.Hint="Введите пароль" Margin="105,70,135,115"/>
-                    <Button x:Name="LogIn_Button"  Content="Вход" Margin="255,132,135,51" Click="Log_in" IsDefault="True" Height="Auto"/>
+                    <Button x:Name="LogIn_Button" Content="Вход" Margin="255,132,135,51" Click="Log_in" IsDefault="True" Height="Auto"/>
                     <Button x:Name="Register_Button" Content="Регистрация" Click="Register" Foreground="Black" Background="Transparent" Margin="105,130,270,53" Height="Auto"/>
                 </Grid>
             </StackPanel>
