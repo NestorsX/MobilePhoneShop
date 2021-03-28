@@ -8,9 +8,9 @@ namespace MobilePhoneShop
 {
     class User
     {
-        private int id { get; set; }
+        private int userId { get; set; }
         private string login, password;
-        private int DataId { get; set; }
+        private int dataId { get; set; }
         public string Login
         {
             get { return login; }
@@ -22,11 +22,11 @@ namespace MobilePhoneShop
             set { password = value; }
         }
         public User() { }
-        public User(string login, string password, int DataId)
+        public User(string login, string password, int dataId)
         {
             this.login = login;
             this.password = password;
-            this.DataId = DataId;
+            this.dataId = dataId;
         }
     }
 }
