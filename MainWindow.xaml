@@ -6,18 +6,24 @@
         xmlns:local="clr-namespace:MobilePhoneShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MobilePhoneShop.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="900" MinHeight="450" MinWidth="600">
     <Grid>
-        <Label Content="Mobilephone Shop" HorizontalAlignment="Left" Margin="328,108,0,0" VerticalAlignment="Top"/>
-        <Label Content="Логин:" HorizontalAlignment="Left" Margin="277,157,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="Login_TextBox" HorizontalAlignment="Left" Height="23" Margin="339,157,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Пароль:" HorizontalAlignment="Left" Margin="277,192,0,0" VerticalAlignment="Top" Height="23"/>
-        <Button x:Name="LogIn_Button"  Content="Вход" HorizontalAlignment="Left" Margin="384,263,0,0" VerticalAlignment="Top" Width="75" Click="Log_in" IsDefault="True"/>
-        <PasswordBox x:Name="Password_TextBox" HorizontalAlignment="Left" Margin="339,192,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-        <Button x:Name="Register_Button" Content="Регистрация" HorizontalAlignment="Left" Margin="237,263,0,0" VerticalAlignment="Top" Width="115" Click="Register" Foreground="#DD000000">
-            <Button.Background>
-                <ImageBrush/>
-            </Button.Background>
-        </Button>
+        <Grid.Background>
+            <ImageBrush ImageSource="bg1.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Border MinWidth="400" Margin="15,107,15,152" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20" Height="310">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="70" Color="ForestGreen" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Магазин мобильных телефонов" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
+                <Grid Margin="0 0 0 20" Height="215">
+                    <TextBox x:Name="Login_TextBox" FontSize="16" materialDesign:HintAssist.Hint="Введите логин" Margin="105,30,135,155"/>
+                    <PasswordBox x:Name="Password_TextBox" FontSize="16" materialDesign:HintAssist.Hint="Введите пароль" Margin="105,70,135,115"/>
+                    <Button x:Name="LogIn_Button"  Content="Вход" Margin="255,132,135,51" Click="Log_in" IsDefault="True" Height="Auto"/>
+                    <Button x:Name="Register_Button" Content="Регистрация" Click="Register" Foreground="Black" Background="Transparent" Margin="105,130,270,53" Height="Auto"/>
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
