@@ -7,25 +7,51 @@
         mc:Ignorable="d"
         Title="Главная" Height="450" Width="800" MinHeight="450" MinWidth="800" >
     <Grid>
-        <Border Background="White" CornerRadius="20" Margin="10,10,10,0" Height="60" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"></RowDefinition>
+            <RowDefinition Height="350*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="75*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Background="White" CornerRadius="20" Margin="10,10,10,0" Height="60" VerticalAlignment="Top" Grid.ColumnSpan="2" >
             <Border.Effect>
-                <DropShadowEffect BlurRadius="50" Color="DarkMagenta" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="30" Color="DarkMagenta" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel>
-                <Grid VerticalAlignment="Center" Height="60">
-                    <Button x:Name="Profile" Content="Профиль" Foreground="Black" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,10,10" Width="95" Height="40" />
-                </Grid>
-            </StackPanel>
+            <Grid VerticalAlignment="Center" Height="60">
+                <Button x:Name="Profile" Content="Профиль" Foreground="Black" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,10,10" Width="95" Height="40" />
+            </Grid>
         </Border>
-        <Border Background="White" CornerRadius="20" Margin="10,99,10,10">
+        <Border Background="White" CornerRadius="20" Margin="10,10,10,10" Grid.Row="1">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="50" Color="DarkMagenta" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="30" Color="DarkMagenta" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel>
-                <Grid>
-                    
-                </Grid>
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+        </Border>
+        <Border Background="White" CornerRadius="20" Margin="10,10,10,10" Grid.Row="1" Grid.Column="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="DarkMagenta" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition> </ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
         </Border>
     </Grid>
 </Window>
