@@ -3,16 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MobilePhoneShop"
         mc:Ignorable="d"
         Title="ProfileWindow" Height="450" Width="800">
     <Grid>
-        <Border Background="White" CornerRadius="20" Margin="20,20,20,20">
+        <Border Background="White" CornerRadius="20" Margin="20,20,20,20" Padding="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="40" Color="DarkMagenta" ShadowDepth="0"/>
             </Border.Effect>
             <Grid>
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="Entry_TextBlock" Text="Здравствуйте," VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20 0 0 0" FontSize="32" Grid.RowSpan="2"/>
+                <TextBox x:Name="secondName_TextBox" materialDesign:HintAssist.Hint="Фамилия" Grid.Row="2"/>
+                <TextBox x:Name="firstName_TextBox" materialDesign:HintAssist.Hint="Имя" Grid.Row="3"/>
+                <TextBox x:Name="thirdName_TextBox" materialDesign:HintAssist.Hint="Отчество" Grid.Row="4"/>
+                <TextBox x:Name="email_TextBox" materialDesign:HintAssist.Hint="e-mail" Grid.Row="5"/>
+                <TextBox x:Name="telNumber_TextBox" materialDesign:HintAssist.Hint="Номер телефона" Grid.Row="6"/>
+                <Button x:Name="ConfirmChanges_Button" Content="Сохранить изменения" Grid.Row="7" Click="ConfirmChanges_Button_Click"/>
             </Grid>
         </Border>
     </Grid>

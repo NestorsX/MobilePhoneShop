@@ -26,9 +26,18 @@ namespace MobilePhoneShop
             InitializeComponent();
             Closing += OnWindowClosing;
             currentUser = apc.userDatas.Where(userData => userData.dataID == MainWindow.currentUserID).FirstOrDefault();
-            MessageBox.Show(currentUser.Email.ToString());
+            Entry_TextBlock.Text = "Здравствуйте, " + currentUser.FirstName + " " + currentUser.ThirdName;
+            secondName_TextBox.Text = currentUser.SecondName;
+            firstName_TextBox.Text = currentUser.FirstName;
+            thirdName_TextBox.Text = currentUser.ThirdName;
+            email_TextBox.Text = currentUser.Email;
+            telNumber_TextBox.Text = currentUser.TelNumber;
+        }
+        private void ConfirmChanges_Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
+
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
             Application.Current.MainWindow.Show();
