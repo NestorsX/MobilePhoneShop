@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +15,16 @@ using System.Windows.Shapes;
 
 namespace MobilePhoneShop
 {
-    public partial class MainForm : Window
+    public partial class ProfileWindow : Window
     {
-        public MainForm()
+        public ProfileWindow()
         {
             InitializeComponent();
+            Closing += OnWindowClosing;
         }
-
-        private void Profile_Button_Click(object sender, RoutedEventArgs e)
+        private void OnWindowClosing(object sender, CancelEventArgs e)
         {
-            ProfileWindow pfw = new ProfileWindow();
-            Hide();
-            pfw.ShowDialog();
+            Application.Current.MainWindow.Show();
         }
     }
 }
