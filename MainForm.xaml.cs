@@ -19,6 +19,7 @@ namespace MobilePhoneShop
         public MainForm()
         {
             InitializeComponent();
+
         }
 
         private void Profile_Button_Click(object sender, RoutedEventArgs e)

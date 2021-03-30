@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,16 @@ namespace MobilePhoneShop
 {
     public partial class ProfileWindow : Window
     {
+        UserData currentUser;
+        AccessToDB acdb = new AccessToDB();
+        AppContext apc = new AppContext();
         public ProfileWindow()
         {
             InitializeComponent();
             Closing += OnWindowClosing;
+            currentUser = apc.userDatas.Where(userData => userData.dataID == MainWindow.currentUserID).FirstOrDefault();
+            MessageBox.Show(currentUser.Email.ToString());
+
         }
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {

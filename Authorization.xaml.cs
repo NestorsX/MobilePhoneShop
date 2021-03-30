@@ -10,6 +10,7 @@ namespace MobilePhoneShop
 {
     public partial class MainWindow : Window
     {
+        public static int currentUserID;
         AccessToDB acdb = new AccessToDB();
         public MainWindow()
         {
@@ -25,7 +26,8 @@ namespace MobilePhoneShop
             }
             if(authUser!=null)
             {
-                MessageBox.Show("Авторизация выполнена");
+                currentUserID = authUser.userID;
+                acdb.Insert($"UPDATE [userDatas] SET [lastAccessDate] = '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}' WHERE [dataID] = '{currentUserID}'");
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
                 Close();

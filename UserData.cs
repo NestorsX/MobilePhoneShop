@@ -11,7 +11,8 @@ namespace MobilePhoneShop
     {
         [Key]
         public int dataID { get; set; }
-        private string firstName, secondName, thirdName, telNumber, email, registerDate, lastAccessDate;
+        private string firstName, secondName, thirdName, telNumber, email;
+        private DateTime registerDate, lastAccessDate;
         public string FirstName
         {
             get { return firstName; }
@@ -37,18 +38,18 @@ namespace MobilePhoneShop
             get { return email; }
             set { email = value; }
         }
-        public string RegisterDate
+        public DateTime RegisterDate
         {
             get { return registerDate; }
             set { registerDate = value; }
         }
-        public string LastAccessDate
+        public DateTime LastAccessDate
         {
             get { return lastAccessDate; }
             set { lastAccessDate = value; }
         }
         public UserData() { }
-        public UserData(string firstName, string email, string registerDate)
+        public UserData(string firstName, string email, DateTime registerDate)
         {
             this.firstName = firstName;
             this.email = email;
