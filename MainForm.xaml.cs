@@ -25,6 +25,7 @@ namespace MobilePhoneShop
         private void Profile_Button_Click(object sender, RoutedEventArgs e)
         {
             ProfileWindow pfw = new ProfileWindow();
+            pfw.Owner = this;
             Hide();
             pfw.ShowDialog();
         }

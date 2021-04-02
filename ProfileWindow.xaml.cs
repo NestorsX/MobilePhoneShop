@@ -35,11 +35,19 @@ namespace MobilePhoneShop
         }
         private void ConfirmChanges_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            acdb.Insert($"UPDATE [userDatas] SET" + // ДОБАВИТЬ ПРОВЕРКИ ДЛЯ ТЕКСТБОКСОВ
+                $" [secondName] = '{secondName_TextBox.Text}', " +
+                $" [firstName] = '{firstName_TextBox.Text}', " +
+                $" [thirdName] = '{thirdName_TextBox.Text}', " +
+                $" [telNumber] = '{telNumber_TextBox.Text}', " +
+                $" [email] = '{email_TextBox.Text}' " +
+                $"WHERE [dataID] = '{currentUser.dataID}'");
+            MessageBox.Show("Данные обновлены успешно");
         }
 
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
+            Owner.Show();
             Application.Current.MainWindow.Show();
         }
     }
