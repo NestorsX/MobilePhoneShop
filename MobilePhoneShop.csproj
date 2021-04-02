@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AccessToDB.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppContext.cs" />
     <Compile Include="MainForm.xaml.cs">
       <DependentUpon>MainForm.xaml</DependentUpon>
@@ -84,6 +88,10 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserData.cs" />
+    <Page Include="AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Authorization.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

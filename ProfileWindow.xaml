@@ -36,7 +36,10 @@
                 <TextBox x:Name="thirdName_TextBox" materialDesign:HintAssist.Hint="Отчество" Grid.Row="4"/>
                 <TextBox x:Name="email_TextBox" materialDesign:HintAssist.Hint="e-mail" Grid.Row="5"/>
                 <TextBox x:Name="telNumber_TextBox" materialDesign:HintAssist.Hint="Номер телефона" Grid.Row="6"/>
-                <Button x:Name="ConfirmChanges_Button" Content="Сохранить изменения" Grid.Row="7" Click="ConfirmChanges_Button_Click"/>
+                <PasswordBox x:Name="OldPassword_TextBox" materialDesign:HintAssist.Hint="Старый пароль" Grid.Row="2" Grid.Column="3"/>
+                <PasswordBox x:Name="NewPassword_TextBox" materialDesign:HintAssist.Hint="Новый пароль" Grid.Row="3" Grid.Column="3"/>
+                <PasswordBox x:Name="RetryOldPassword_TextBox" materialDesign:HintAssist.Hint="Повторить новый пароль" Grid.Row="4" Grid.Column="3"/>
+                <Button x:Name="ConfirmChanges_Button" Content="Сохранить изменения" Grid.Row="8" Grid.Column="3" Click="ConfirmChanges_Button_Click"/>
             </Grid>
         </Border>
     </Grid>

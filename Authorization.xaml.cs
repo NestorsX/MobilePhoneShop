@@ -12,6 +12,7 @@ namespace MobilePhoneShop
     {
         public static int currentUserID;
         AccessToDB acdb = new AccessToDB();
+        AppContext apc = new AppContext();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,9 +29,19 @@ namespace MobilePhoneShop
             {
                 currentUserID = authUser.userID;
                 acdb.Insert($"UPDATE [userDatas] SET [lastAccessDate] = '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}' WHERE [dataID] = '{currentUserID}'");
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
-                Close();
+                Admin isAdmin = apc.admins.Where(admin => admin.userID == currentUserID).FirstOrDefault();
+                if (isAdmin != null && isAdmin.userID == 1)
+                {
+                    AdminPanel adminPanel = new AdminPanel();
+                    adminPanel.Show();
+                    Close();
+                }
+                else
+                {
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                    Close();
+                }
             }
             else
                 MessageBox.Show("Неверный логин или пароль");

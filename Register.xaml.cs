@@ -57,7 +57,6 @@ namespace MobilePhoneShop
             }
             else
                 MessageBox.Show("Пользователь с таким логином уже зарегистрирован");
-
         }
     }
 }
