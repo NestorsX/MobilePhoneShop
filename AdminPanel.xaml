@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:MobilePhoneShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AdminPanel" Height="500" Width="800">
+        Title="AdminPanel" Height="550" Width="800">
     <Grid Margin="10">
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -45,8 +46,9 @@
         <TextBox x:Name="Colour_TextBox" Grid.Column="0" Grid.Row="10" materialDesign:HintAssist.Hint="Цвет"/>
         <TextBox x:Name="Weight_TextBox" Grid.Column="0" Grid.Row="11" materialDesign:HintAssist.Hint="Вес"/>
         <ComboBox x:Name="Accum_ComboBox" Grid.Column="0" Grid.Row="12" materialDesign:HintAssist.Hint="Тип аккумулятора" Height="26"/>
-        <TextBox x:Name="Cost_TextBox" Grid.Column="0" Grid.Row="13" materialDesign:HintAssist.Hint="Цена"/>
-        <Button x:Name="AddMobilePhone" Content="Добавить телефон" Grid.Column="0" Grid.Row="14" Click="AddMobilePhone_Click" Height="Auto" Margin="0 5 0 -5"/>
+        <TextBox x:Name="AccumCapacity_TextBox" Grid.Column="0" Grid.Row="13" materialDesign:HintAssist.Hint="Емкость аккумулятора"/>
+        <TextBox x:Name="Cost_TextBox" Grid.Column="0" Grid.Row="14" materialDesign:HintAssist.Hint="Цена"/>
+        <Button x:Name="AddMobilePhone" Content="Добавить телефон" Grid.Column="0" Grid.Row="15" Click="AddMobilePhone_Click" Height="Auto" Margin="0 5 0 -5"/>
 
         <TextBlock Text="Добавить новую ОС" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
         <TextBox x:Name="OsType_TextBox" Grid.Column="2" Grid.Row="1" materialDesign:HintAssist.Hint="Название"/>
@@ -61,7 +63,7 @@
         <Button x:Name="AddAccumulator" Content="Добавить тип аккумулятора" Grid.Column="2" Grid.Row="10" Click="AddAccumulator_Click" Margin="0 5 0 -5"/>
 
         <TextBlock Text="Список телефонов" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
-        <ListBox x:Name="Users_ListBox" Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" ScrollViewer.CanContentScroll="True"/>
+        <ListBox x:Name="Phones_ListBox" Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" ScrollViewer.CanContentScroll="True"/>
         <Button x:Name="DeletePhone" Content="Удалить выбранный телефон" Grid.Column="4" Grid.Row="6" Click="DeletePhone_Click" Margin="0 5 0 -5"/>
     </Grid>
 </Window>
