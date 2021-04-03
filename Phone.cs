@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MobilePhoneShop
 {
@@ -20,6 +22,7 @@ namespace MobilePhoneShop
         private double weight;
         private int accID, accCapacity;
         private double cost;
+        private string image;
         public int OsID
         {
             get { return osID; }
@@ -68,7 +71,7 @@ namespace MobilePhoneShop
         public string Models
         {
             get { return models; }
-            set { models = value; }
+            set { models = value.Trim(); }
         }
         public string Processor
         {
@@ -90,9 +93,25 @@ namespace MobilePhoneShop
             get { return cost; }
             set { cost = value; }
         }
+        public string Image
+        {
+            get { return image; }
+            set { image = value.Trim(); }
+        }
+        public BitmapImage getImage
+        {
+            get
+            {
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri("pack://application:,,,/MobilePhoneShop;component/Images/" + Image + ".jpg");
+                image.EndInit();
+                return image;
+            }
+        }
         public Phone() { }
         public Phone(int osID, int displayTechID, string models, int simCount, string processor, int mainCameraRes, int frontCameraRes, int ramCapacity, 
-            int romCapacity, string colour, double weight, int accID, int accCapacity, double cost)
+            int romCapacity, string colour, double weight, int accID, int accCapacity, double cost, string image)
         {
             this.osID = osID;
             this.displayTechID = displayTechID;
@@ -108,6 +127,7 @@ namespace MobilePhoneShop
             this.accID = accID;
             this.accCapacity = accCapacity;
             this.cost = cost;
+            this.image = image;
         }
         public override string ToString()
         {

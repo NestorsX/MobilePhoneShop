@@ -16,10 +16,14 @@ namespace MobilePhoneShop
 {
     public partial class MainForm : Window
     {
+        AccessToDB acdb = new AccessToDB();
+        AppContext apc = new AppContext();
+        List<Phone> phones;
         public MainForm()
         {
             InitializeComponent();
-
+            phones = apc.phones.ToList();
+            Phones_ListBox.ItemsSource = phones;
         }
 
         private void Profile_Button_Click(object sender, RoutedEventArgs e)

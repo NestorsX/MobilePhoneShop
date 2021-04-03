@@ -5,7 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MobilePhoneShop"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="800" MinHeight="450" MinWidth="800" >
+        Title="Главная" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Window.Resources>
+        <Style TargetType="ListBox">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel ItemHeight="150" ItemWidth="185" Orientation="Horizontal" Width="555"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="MyImagesItemTemplate">
+            <Grid Width="185" Height="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" HorizontalAlignment="Center" Width="120" Height="120" Source="{Binding Path=getImage}"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Path=Models}"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"></RowDefinition>
@@ -42,15 +64,7 @@
                 <DropShadowEffect BlurRadius="30" Color="DarkMagenta" ShadowDepth="0"/>
             </Border.Effect>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition> </ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                <ListBox x:Name="Phones_ListBox" BorderBrush="White" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemTemplate="{StaticResource MyImagesItemTemplate}" Margin="5"/>
             </Grid>
         </Border>
     </Grid>

@@ -54,7 +54,7 @@ namespace MobilePhoneShop
                 {
                     acdb.Insert($"INSERT INTO [phones] VALUES({osID + 1}, {displayTechID + 1}, '{model}', {simCount}, " +
                         $"'{processor}', {mainCamRes}, {frontCamRes}, {ramCapacity}, {romCapacity}, '{colour}', {weight}, {accumID + 1}, {accumCapacity}, {cost})");
-                    MessageBox.Show("Телефон добавлен в систему");
+                    MessageBox.Show("Телефон добавлен в систему"); //ДОПИСАТЬ ДОБАВЛЕНИЕ КАРТИНКИ В БАЗУ!!!
                     AdminPanel adminPanel = new AdminPanel();
                     adminPanel.Show();
                     Close();
