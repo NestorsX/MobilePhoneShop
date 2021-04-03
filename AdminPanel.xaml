@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:MobilePhoneShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AdminPanel" Height="450" Width="800">
-    <Grid>
+        Title="AdminPanel" Height="500" Width="800">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -26,13 +26,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="250*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Добавить новый телефон" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
-        <ComboBox x:Name="OS_ComboBox" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Операционная система"/>
-        <ComboBox x:Name="DisplayTech_ComboBox" Grid.Column="0" Grid.Row="2"/>
+        <TextBlock Text="Добавить новый телефон" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
+        <ComboBox x:Name="OS_ComboBox" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Операционная система" Height="25" Margin="0,1"/>
+        <ComboBox x:Name="DisplayTech_ComboBox" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Тип матрицы" Height="25" Margin="0,1"/>
         <TextBox x:Name="Model_TextBox" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Модель телефона"/>
         <TextBox x:Name="SimCount_TextBox" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Кол-во SIM-карт"/>
         <TextBox x:Name="Processor_TextBox" Grid.Column="0" Grid.Row="5" materialDesign:HintAssist.Hint="Модель процессора"/>
@@ -42,8 +44,24 @@
         <TextBox x:Name="ROMCapacity_TextBox" Grid.Column="0" Grid.Row="9" materialDesign:HintAssist.Hint="Объем внутренней памяти"/>
         <TextBox x:Name="Colour_TextBox" Grid.Column="0" Grid.Row="10" materialDesign:HintAssist.Hint="Цвет"/>
         <TextBox x:Name="Weight_TextBox" Grid.Column="0" Grid.Row="11" materialDesign:HintAssist.Hint="Вес"/>
-        <ComboBox x:Name="Accum_ComboBox" Grid.Column="0" Grid.Row="12"/>
+        <ComboBox x:Name="Accum_ComboBox" Grid.Column="0" Grid.Row="12" materialDesign:HintAssist.Hint="Тип аккумулятора" Height="26"/>
         <TextBox x:Name="Cost_TextBox" Grid.Column="0" Grid.Row="13" materialDesign:HintAssist.Hint="Цена"/>
-        <Button x:Name="AddMobilePhone" Content="Добавить телефон" Grid.Column="0" Grid.Row="14" Click="AddMobilePhone_Click"/>
+        <Button x:Name="AddMobilePhone" Content="Добавить телефон" Grid.Column="0" Grid.Row="14" Click="AddMobilePhone_Click" Height="Auto" Margin="0 5 0 -5"/>
+
+        <TextBlock Text="Добавить новую ОС" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
+        <TextBox x:Name="OsType_TextBox" Grid.Column="2" Grid.Row="1" materialDesign:HintAssist.Hint="Название"/>
+        <Button x:Name="AddOS" Content="Добавить ОС" Grid.Column="2" Grid.Row="2" Click="AddOS_Click" Margin="0 5 0 -5"/>
+
+        <TextBlock Text="Добавить новый тип матрицы" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
+        <TextBox x:Name="Display_TextBox" Grid.Column="2" Grid.Row="5" materialDesign:HintAssist.Hint="Название"/>
+        <Button x:Name="AddDisplay" Content="Добавить тип матрицы" Grid.Column="2" Grid.Row="6" Click="AddDisplay_Click" Margin="0 5 0 -5"/>
+
+        <TextBlock Text="Добавить новый тип аккумулятора" Grid.Column="2" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
+        <TextBox x:Name="Accumulator_TextBox" Grid.Column="2" Grid.Row="9" materialDesign:HintAssist.Hint="Название"/>
+        <Button x:Name="AddAccumulator" Content="Добавить тип аккумулятора" Grid.Column="2" Grid.Row="10" Click="AddAccumulator_Click" Margin="0 5 0 -5"/>
+
+        <TextBlock Text="Список телефонов" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
+        <ListBox x:Name="Users_ListBox" Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" ScrollViewer.CanContentScroll="True"/>
+        <Button x:Name="DeletePhone" Content="Удалить выбранный телефон" Grid.Column="4" Grid.Row="6" Click="DeletePhone_Click" Margin="0 5 0 -5"/>
     </Grid>
 </Window>

@@ -17,9 +17,9 @@ namespace MobilePhoneShop
         private string processor;
         private int mainCameraRes, frontCameraRes, ramCapacity, romCapacity;
         private string colour;
-        private float weight;
+        private double weight;
         private int accID;
-        private float cost;
+        private double cost;
         public int OsID
         {
             get { return osID; }
@@ -75,19 +75,19 @@ namespace MobilePhoneShop
             get { return colour; }
             set { colour = value; }
         }
-        public float Weight
+        public double Weight
         {
             get { return weight; }
             set { weight = value; }
         }
-        public float Cost
+        public double Cost
         {
             get { return cost; }
             set { cost = value; }
         }
         public Phone() { }
         public Phone(int osID, int displayTechID, string models, int simCount, string processor, int mainCameraRes, int frontCameraRes, int ramCapacity, 
-            int romCapacity, string colour, float weight, int accID, float cost)
+            int romCapacity, string colour, double weight, int accID, double cost)
         {
             this.osID = osID;
             this.displayTechID = displayTechID;
@@ -103,9 +103,9 @@ namespace MobilePhoneShop
             this.accID = accID;
             this.cost = cost;
         }
-        /*public override string ToString()
+        public override string ToString()
         {
             return models;
-        }*/
+        }
     }
 }
