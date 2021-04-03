@@ -24,7 +24,7 @@ namespace MobilePhoneShop
             }
             return dataTable; // результат select запроса
         }
-        public void Insert(string insertSQL) // insert запрос
+        public void Insert(string insertSQL) // insert/update запрос
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

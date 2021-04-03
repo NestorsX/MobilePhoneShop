@@ -4,9 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MobilePhoneShop"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="AdminPanel" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Добавить новый телефон" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <ComboBox x:Name="OS_ComboBox" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Операционная система"/>
+        <ComboBox x:Name="DisplayTech_ComboBox" Grid.Column="0" Grid.Row="2"/>
+        <TextBox x:Name="Model_TextBox" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Модель телефона"/>
+        <TextBox x:Name="SimCount_TextBox" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Кол-во SIM-карт"/>
+        <TextBox x:Name="Processor_TextBox" Grid.Column="0" Grid.Row="5" materialDesign:HintAssist.Hint="Модель процессора"/>
+        <TextBox x:Name="MainCameraRes_TextBox" Grid.Column="0" Grid.Row="6" materialDesign:HintAssist.Hint="Кол-во МП основной камеры"/>
+        <TextBox x:Name="FrontCameraRes_TextBox" Grid.Column="0" Grid.Row="7" materialDesign:HintAssist.Hint="Кол-во МП фронтальной камеры"/>
+        <TextBox x:Name="RAMCapacity_TextBox" Grid.Column="0" Grid.Row="8" materialDesign:HintAssist.Hint="Объем оперативной памяти"/>
+        <TextBox x:Name="ROMCapacity_TextBox" Grid.Column="0" Grid.Row="9" materialDesign:HintAssist.Hint="Объем внутренней памяти"/>
+        <TextBox x:Name="Colour_TextBox" Grid.Column="0" Grid.Row="10" materialDesign:HintAssist.Hint="Цвет"/>
+        <TextBox x:Name="Weight_TextBox" Grid.Column="0" Grid.Row="11" materialDesign:HintAssist.Hint="Вес"/>
+        <ComboBox x:Name="Accum_ComboBox" Grid.Column="0" Grid.Row="12"/>
+        <TextBox x:Name="Cost_TextBox" Grid.Column="0" Grid.Row="13" materialDesign:HintAssist.Hint="Цена"/>
+        <Button x:Name="AddMobilePhone" Content="Добавить телефон" Grid.Column="0" Grid.Row="14" Click="AddMobilePhone_Click"/>
     </Grid>
 </Window>

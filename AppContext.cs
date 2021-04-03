@@ -12,6 +12,10 @@ namespace MobilePhoneShop
         public DbSet<User> users { get; set; }
         public DbSet<UserData> userDatas { get; set; }
         public DbSet<Admin> admins { get; set; }
+        public DbSet<Os> os { get; set; }
+        public DbSet<DisplayTech> displayTeches { get; set; }
+        public DbSet<Acc> accs { get; set; }
+        public DbSet<Phone> phones { get; set; }
         public AppContext() : base("DBConnection") { }
     }
 }
