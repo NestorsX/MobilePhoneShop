@@ -30,7 +30,7 @@ namespace MobilePhoneShop
                 currentUserID = authUser.userID;
                 acdb.Insert($"UPDATE [userDatas] SET [lastAccessDate] = '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}' WHERE [dataID] = '{currentUserID}'");
                 Admin isAdmin = apc.admins.Where(admin => admin.userID == currentUserID).FirstOrDefault();
-                if (isAdmin != null && isAdmin.userID == 1)
+                if (isAdmin != null && isAdmin.userID == currentUserID)
                 {
                     AdminPanel adminPanel = new AdminPanel();
                     adminPanel.Show();

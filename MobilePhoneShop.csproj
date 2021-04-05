@@ -151,13 +151,6 @@
   <ItemGroup>
     <Resource Include="bg1.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Google Pixel 5.jpg" />
-    <Resource Include="Images\Huawei HONOR 9X.jpg" />
-    <Resource Include="Images\Iphone 12.jpg" />
-    <Resource Include="Images\Samsung Galaxy M21.jpg" />
-    <Resource Include="Images\Xiaomi Redmi 9.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

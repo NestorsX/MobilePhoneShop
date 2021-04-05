@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace MobilePhoneShop
         AccessToDB acdb = new AccessToDB();
         AppContext apc = new AppContext();
         List<Phone> phones;
+        string imagePath;
         public AdminPanel()
         {
             InitializeComponent();
@@ -50,11 +53,12 @@ namespace MobilePhoneShop
             {
                 if (Convert.ToInt32(osID) > -1 && Convert.ToInt32(displayTechID) > -1 && model.Length > 0 && simCount.Length > 0 && processor.Length > 0 && mainCamRes.Length > 0
                     && frontCamRes.Length > 0 && ramCapacity.Length > 0 && romCapacity.Length > 0 && colour.Length > 0 && weight.Length > 0 && Convert.ToInt32(accumID) > -1
-                    && accumCapacity.Length>0 && Convert.ToDouble(cost) > 0)
+                    && accumCapacity.Length>0 && Convert.ToDouble(cost) > 0 && imagePath.Length>0)
                 {
+                    File.Copy(imagePath, "C:/Users/neste/Desktop/MobilePhoneShop/Images/" + System.IO.Path.GetFileName(imagePath));
                     acdb.Insert($"INSERT INTO [phones] VALUES({osID + 1}, {displayTechID + 1}, '{model}', {simCount}, " +
-                        $"'{processor}', {mainCamRes}, {frontCamRes}, {ramCapacity}, {romCapacity}, '{colour}', {weight}, {accumID + 1}, {accumCapacity}, {cost})");
-                    MessageBox.Show("Телефон добавлен в систему"); //ДОПИСАТЬ ДОБАВЛЕНИЕ КАРТИНКИ В БАЗУ!!!
+                        $"'{processor}', {mainCamRes}, {frontCamRes}, {ramCapacity}, {romCapacity}, '{colour}', {weight}, {accumID + 1}, {accumCapacity}, {cost}, '{System.IO.Path.GetFileNameWithoutExtension(imagePath)}')");
+                    MessageBox.Show("Телефон добавлен в систему");
                     AdminPanel adminPanel = new AdminPanel();
                     adminPanel.Show();
                     Close();
@@ -130,6 +134,20 @@ namespace MobilePhoneShop
             }
             else
                 MessageBox.Show("Выберите телефон, чтобы удалить");
+        }
+
+        private void ChoosePicture_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fOpen = new OpenFileDialog();
+            fOpen.Filter = "Image (*.jpg)|*.jpg";
+            SolidColorBrush solidColor = new SolidColorBrush(Color.FromRgb(124, 252, 0));
+            if (fOpen.ShowDialog() == true)
+            {
+                imagePath = fOpen.FileName;
+                ChoosePicture.Content = System.IO.Path.GetFileName(imagePath);
+                ChoosePicture.Background = solidColor;
+
+            }
         }
     }
 }

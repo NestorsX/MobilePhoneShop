@@ -104,7 +104,7 @@ namespace MobilePhoneShop
             {
                 BitmapImage image = new BitmapImage();
                 image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/MobilePhoneShop;component/Images/" + Image + ".jpg");
+                image.UriSource = new Uri("C:/Users/neste/Desktop/MobilePhoneShop/Images/" + Image + ".jpg");
                 image.EndInit();
                 return image;
             }

@@ -19,6 +19,7 @@ namespace MobilePhoneShop
         AccessToDB acdb = new AccessToDB();
         AppContext apc = new AppContext();
         List<Phone> phones;
+        List<Phone> searchReq = new List<Phone>();
         public MainForm()
         {
             InitializeComponent();
@@ -32,6 +33,31 @@ namespace MobilePhoneShop
             pfw.Owner = this;
             Hide();
             pfw.ShowDialog();
+        }
+
+        private void RecycleBin_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Search_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            searchReq.Clear();
+            Phones_ListBox.ItemsSource = phones;
+            foreach (Phone phone in Phones_ListBox.Items)
+            {
+                if(phone.Models.ToLower().Contains(Search_TextBox.Text.ToLower()))
+                {
+                    searchReq.Add(phone);
+                }
+            }
+            Phones_ListBox.ItemsSource = null;
+            Phones_ListBox.Items.Clear();
+            Phones_ListBox.ItemsSource = searchReq;
+            if(Search_TextBox.Text.Length==0)
+            {
+                Phones_ListBox.ItemsSource = phones;
+            }
         }
     }
 }
