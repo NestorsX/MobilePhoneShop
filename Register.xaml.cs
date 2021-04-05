@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,20 +46,40 @@ namespace MobilePhoneShop
             string thirdName = ThirdName_TextBox.Text;
             string telNumber = TelNumber_TextBox.Text;
             List<User> users = appContext.users.ToList();
+            string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
             if (users.Where(user => user.Login == login).Count() == 0)
             {
-                if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0)
+                if (Regex.IsMatch(email, cond))
                 {
-                    acdb.Insert($"INSERT INTO [users] VALUES('{login}','{password}')");
-                    acdb.Insert($"INSERT INTO [userDatas] VALUES('{secondName}', '{firstName}', '{thirdName}', '{telNumber}', '{email}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");
-
-                    //закрытие окна регистрации
-                    Application.Current.MainWindow.Show();
-                    Close();
+                    if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0)
+                    {
+                        acdb.Insert($"INSERT INTO [users] VALUES('{login}','{password}')");
+                        acdb.Insert($"INSERT INTO [userDatas] VALUES('{secondName}', '{firstName}', '{thirdName}', '{telNumber}', '{email}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");
+                        SendRegisterNoticeMail(email);
+                        //закрытие окна регистрации
+                        Application.Current.MainWindow.Show();
+                        Close();
+                    }
                 }
+                else
+                    MessageBox.Show("Неверный формат электронной почты");
             }
             else
                 MessageBox.Show("Пользователь с таким логином уже зарегистрирован");
+        }
+        private void SendRegisterNoticeMail(string email)
+        {
+            SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 587);
+            Smtp.EnableSsl = true;
+            Smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            Smtp.UseDefaultCredentials = false;
+            Smtp.Credentials = new NetworkCredential("nstrkrll.mobiles4you@gmail.com", "Jz0%$FTG");
+            MailMessage Message = new MailMessage();
+            Message.From = new MailAddress("nstrkrll.mobiles4you@gmail.com");
+            Message.To.Add(new MailAddress(email));
+            Message.Subject = "Регистрация в магазине мобильных телефонов";
+            Message.Body = "Поздравляем! Вы успешно завершили регистрацию в магазине. Удачных покупок!";
+            Smtp.Send(Message);
         }
     }
 }
