@@ -56,8 +56,8 @@ namespace MobilePhoneShop
                     && accumCapacity.Length>0 && Convert.ToDouble(cost) > 0 && imagePath.Length>0)
                 {
                     File.Copy(imagePath, "C:/Users/neste/Desktop/MobilePhoneShop/Images/" + System.IO.Path.GetFileName(imagePath));
-                    acdb.Insert($"INSERT INTO [phones] VALUES({osID + 1}, {displayTechID + 1}, '{model}', {simCount}, " +
-                        $"'{processor}', {mainCamRes}, {frontCamRes}, {ramCapacity}, {romCapacity}, '{colour}', {weight}, {accumID + 1}, {accumCapacity}, {cost}, '{System.IO.Path.GetFileNameWithoutExtension(imagePath)}')");
+                    acdb.Insert($"INSERT INTO [phones] VALUES({Convert.ToInt32(osID) + 1}, {Convert.ToInt32(displayTechID) + 1}, '{model}', {simCount}, " +
+                        $"'{processor}', {mainCamRes}, {frontCamRes}, {ramCapacity}, {romCapacity}, '{colour}', {weight}, {Convert.ToInt32(accumID) + 1}, {accumCapacity}, {cost}, '{System.IO.Path.GetFileNameWithoutExtension(imagePath)}')");
                     MessageBox.Show("Телефон добавлен в систему");
                     AdminPanel adminPanel = new AdminPanel();
                     adminPanel.Show();

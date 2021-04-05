@@ -59,5 +59,22 @@ namespace MobilePhoneShop
                 Phones_ListBox.ItemsSource = phones;
             }
         }
+
+        private void Phones_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Phone selectedPhone = (Phone)Phones_ListBox.SelectedItem;
+            Phone_Image.Source = selectedPhone.getImage;
+            PhoneModel_TextBlock.Text = "Модель: " + selectedPhone.Models + " " + selectedPhone.RamCapacity + "/" + selectedPhone.RomCapacity;
+            PhoneOS_TextBlock.Text = "ОС: " + apc.os.Where(oss => oss.osID == selectedPhone.OsID).FirstOrDefault().Name;
+            PhoneDisplay_TextBlock.Text = "Дисплей: " + apc.displayTeches.Where(display => display.displayTechID == selectedPhone.DisplayTechID).FirstOrDefault().Type;
+            PhoneCameras_TextBlock.Text = "Камеры: основная: " + selectedPhone.MainCameraRes + " МП | фронтальная: " + selectedPhone.FrontCameraRes + " МП";
+            PhoneAccumulator_TextBlock.Text = "Аккумулятор: " + apc.accs.Where(acc => acc.accID == selectedPhone.AccID).FirstOrDefault().Type + " " + selectedPhone.AccCapacity + " мАч";
+            AddToBin_Button.Visibility = Visibility.Visible;
+        }
+
+        private void AddToBin_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
