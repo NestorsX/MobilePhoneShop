@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -85,8 +87,11 @@ namespace MobilePhoneShop
                     if (OldPassword_TextBox.Password == currentUser.Password && NewPassword_TextBox.Password == RetryOldPassword_TextBox.Password)
                     {
                         acdb.Insert($"UPDATE [users] SET [password] = '{NewPassword_TextBox.Password}' WHERE [userID] = '{currentUser.userID}'");
+                        SendRegisterNoticeMail(currentUserData.Email);
                     }
                 }
+                else
+                    MessageBox.Show("Неверный пароль");
                 MessageBox.Show("Данные обновлены успешно");
             }
         }
@@ -95,6 +100,20 @@ namespace MobilePhoneShop
         {
             Owner.Show();
             Application.Current.MainWindow.Show();
+        }
+        private void SendRegisterNoticeMail(string email)
+        {
+            SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 587);
+            Smtp.EnableSsl = true;
+            Smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            Smtp.UseDefaultCredentials = false;
+            Smtp.Credentials = new NetworkCredential("nstrkrll.mobiles4you@gmail.com", "Jz0%$FTG");
+            MailMessage Message = new MailMessage();
+            Message.From = new MailAddress("nstrkrll.mobiles4you@gmail.com");
+            Message.To.Add(new MailAddress(email));
+            Message.Subject = "Изменение пароля";
+            Message.Body = "Здравствуйте, " + currentUserData.FirstName.Trim() + " " + currentUserData.ThirdName.Trim() + "\nВаш пароль был изменен. Если это были не вы - обратитесь к администратору!";
+            Smtp.Send(Message);
         }
     }
 }
