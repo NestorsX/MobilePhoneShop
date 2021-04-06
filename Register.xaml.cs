@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -21,6 +23,31 @@ namespace MobilePhoneShop
 {
     public partial class Register : Window
     {
+        [DllImport("user32.dll")]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private const int GWL_STYLE = -16;
+
+        private const int WS_MAXIMIZEBOX = 0x10000; //maximize button
+        private IntPtr _windowHandle;
+        private void MainWindow_SourceInitialized(object sender, EventArgs e)
+        {
+            _windowHandle = new WindowInteropHelper(this).Handle;
+            DisableMaximizeButton();
+        }
+
+        protected void DisableMaximizeButton()
+        {
+            if (_windowHandle == null)
+                throw new InvalidOperationException("The window has not yet been completely initialized");
+
+            SetWindowLong(_windowHandle, GWL_STYLE, GetWindowLong(_windowHandle, GWL_STYLE) & ~WS_MAXIMIZEBOX);
+        }
+
+        //---------------------------------------------------------------------------------------------------------------
+
         AppContext appContext;
         AccessToDB acdb;
         public Register()
@@ -29,6 +56,7 @@ namespace MobilePhoneShop
             Closing += OnWindowClosing;
             appContext = new AppContext();
             acdb = new AccessToDB();
+            this.SourceInitialized += MainWindow_SourceInitialized;
         }
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {

@@ -5,16 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MobilePhoneShop"
-        mc:Ignorable="d" Height="450" Width="800" Title="Регистрация">
+        mc:Ignorable="d"
+        Title="Регистрация" Height="500" Width="700" MinHeight="500" MinWidth="700" MaxHeight="600" MaxWidth="800">
     <Grid>
-        <TextBox x:Name="Login_TextBox" materialDesign:HintAssist.Hint="Логин*" HorizontalAlignment="Left" Height="23" Margin="135,40,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="Password_TextBox" materialDesign:HintAssist.Hint="Пароль*" HorizontalAlignment="Left" Margin="135,68,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-        <PasswordBox x:Name="RepeatPassword_TextBox" materialDesign:HintAssist.Hint="Повтор пароля*" HorizontalAlignment="Left" Margin="135,96,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-        <Button x:Name="Register_Button" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="85,331,0,0" VerticalAlignment="Top" Width="170" Click="Register_Button_Click"/>
-        <TextBox x:Name="Email_TextBox" materialDesign:HintAssist.Hint="E-mail*" HorizontalAlignment="Left" Height="23" Margin="135,124,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="FirstName_TextBox" materialDesign:HintAssist.Hint="Имя*" HorizontalAlignment="Left" Height="23" Margin="135,152,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="SecondName_TextBox" materialDesign:HintAssist.Hint="Фамилия" HorizontalAlignment="Left" Height="23" Margin="135,180,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ThirdName_TextBox" materialDesign:HintAssist.Hint="Отчество" HorizontalAlignment="Left" Height="23" Margin="135,208,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TelNumber_TextBox" materialDesign:HintAssist.Hint="Номер телефона" HorizontalAlignment="Left" Height="23" Margin="135,236,0,0" VerticalAlignment="Top" Width="120"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="RegBG.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Border MinWidth="400" Background="White" VerticalAlignment="Center" Padding="10" MaxWidth="550" CornerRadius="20" Height="350">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Регистрация" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Margin="15 0 15 0"/>
+                <TextBox x:Name="Login_TextBox" Grid.Row="1" materialDesign:HintAssist.Hint="Логин*" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <PasswordBox x:Name="Password_TextBox" Grid.Row="2" materialDesign:HintAssist.Hint="Пароль*" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <PasswordBox x:Name="RepeatPassword_TextBox" Grid.Row="3" materialDesign:HintAssist.Hint="Повтор пароля*" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <TextBox x:Name="Email_TextBox" Grid.Row="4" materialDesign:HintAssist.Hint="E-mail*" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <TextBox x:Name="FirstName_TextBox" Grid.Row="5" materialDesign:HintAssist.Hint="Имя*" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <TextBox x:Name="SecondName_TextBox" Grid.Row="6" materialDesign:HintAssist.Hint="Фамилия" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <TextBox x:Name="ThirdName_TextBox" Grid.Row="7" materialDesign:HintAssist.Hint="Отчество" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <TextBox x:Name="TelNumber_TextBox" Grid.Row="8" materialDesign:HintAssist.Hint="Номер телефона" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="15 2 15 0"/>
+                <Button x:Name="Register_Button" Grid.Row="9" Content="Зарегистрироваться" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15 2 15 0" Click="Register_Button_Click"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

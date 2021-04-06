@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MobilePhoneShop
 {
-    /// <summary>
-    /// Interaction logic for RecycleBin.xaml
-    /// </summary>
     public partial class RecycleBin : Window
     {
         AccessToDB acdb = new AccessToDB();
