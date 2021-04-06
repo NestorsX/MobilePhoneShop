@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MobilePhoneShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AdminPanel" Height="600" Width="800">
+        Title="Панель администратора" Height="600" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -67,5 +67,6 @@
         <TextBlock Text="Список телефонов" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="22" Margin="0,2,0,3"/>
         <ListBox x:Name="Phones_ListBox" Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" ScrollViewer.CanContentScroll="True"/>
         <Button x:Name="DeletePhone" Content="Удалить выбранный телефон" Grid.Column="4" Grid.Row="6" Click="DeletePhone_Click" Margin="0 5 0 -5"/>
+        <Button x:Name="Exit" Content="Покинуть панель администратора" Grid.Column="3" Grid.Row="15" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="Exit_Click" Margin="0 5 0 -5"/>
     </Grid>
 </Window>

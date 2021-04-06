@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MobilePhoneShop"
         mc:Ignorable="d"
-        Title="Главная" Height="650" Width="1200" MinHeight="650" MinWidth="1200" MaxHeight="750" MaxWidth="1300">
+        Title="Главная" Height="650" Width="1200" MinHeight="650" MinWidth="1200" MaxHeight="750" MaxWidth="1300" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="ListBox">
             <Setter Property="ItemsPanel">

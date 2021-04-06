@@ -6,9 +6,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MobilePhoneShop"
         mc:Ignorable="d"
-        Title="ProfileWindow" Height="450" Width="800">
+        Title="Профиль" Height="450" Width="800" MinHeight="450" MinWidth="800" MaxHeight="550" MaxWidth="900" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border Background="White" CornerRadius="20" Margin="20,20,20,20" Padding="20">
+        <Grid.Background>
+            <ImageBrush ImageSource="ProfileBG.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Border Background="White" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" MinWidth="550" MinHeight="350">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="40" Color="DarkMagenta" ShadowDepth="0"/>
             </Border.Effect>
@@ -23,23 +26,22 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="Entry_TextBlock" Text="Здравствуйте," VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20 0 0 0" FontSize="32" Grid.RowSpan="2"/>
-                <TextBox x:Name="secondName_TextBox" materialDesign:HintAssist.Hint="Фамилия" Grid.Row="2"/>
-                <TextBox x:Name="firstName_TextBox" materialDesign:HintAssist.Hint="Имя*" Grid.Row="3"/>
-                <TextBox x:Name="thirdName_TextBox" materialDesign:HintAssist.Hint="Отчество" Grid.Row="4"/>
-                <TextBox x:Name="email_TextBox" materialDesign:HintAssist.Hint="e-mail*" Grid.Row="5"/>
-                <TextBox x:Name="telNumber_TextBox" materialDesign:HintAssist.Hint="Номер телефона" Grid.Row="6"/>
-                <PasswordBox x:Name="OldPassword_TextBox" materialDesign:HintAssist.Hint="Старый пароль" Grid.Row="2" Grid.Column="3"/>
-                <PasswordBox x:Name="NewPassword_TextBox" materialDesign:HintAssist.Hint="Новый пароль" Grid.Row="3" Grid.Column="3"/>
-                <PasswordBox x:Name="RetryOldPassword_TextBox" materialDesign:HintAssist.Hint="Повторить новый пароль" Grid.Row="4" Grid.Column="3"/>
-                <Button x:Name="ConfirmChanges_Button" Content="Сохранить изменения" Grid.Row="8" Grid.Column="3" Click="ConfirmChanges_Button_Click"/>
+                <TextBlock x:Name="Entry_TextBlock" Text="Здравствуйте," VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20 0 20 0" FontSize="32" Grid.RowSpan="2"/>
+                <TextBox x:Name="secondName_TextBox" materialDesign:HintAssist.Hint="Фамилия" Grid.Row="2" Margin="0 0 10 0"/>
+                <TextBox x:Name="firstName_TextBox" materialDesign:HintAssist.Hint="Имя*" Grid.Row="3" Margin="0 0 10 0"/>
+                <TextBox x:Name="thirdName_TextBox" materialDesign:HintAssist.Hint="Отчество" Grid.Row="4" Margin="0 0 10 0"/>
+                <TextBox x:Name="email_TextBox" materialDesign:HintAssist.Hint="e-mail*" Grid.Row="5" Margin="0 0 10 0"/>
+                <TextBox x:Name="telNumber_TextBox" materialDesign:HintAssist.Hint="Номер телефона" Grid.Row="6" Margin="0 0 10 0"/>
+
+                <PasswordBox x:Name="OldPassword_TextBox" materialDesign:HintAssist.Hint="Старый пароль" Grid.Row="2" Grid.Column="3" Margin="0 0 10 0"/>
+                <PasswordBox x:Name="NewPassword_TextBox" materialDesign:HintAssist.Hint="Новый пароль" Grid.Row="3" Grid.Column="3" Margin="0 0 10 0"/>
+                <PasswordBox x:Name="RetryOldPassword_TextBox" materialDesign:HintAssist.Hint="Повторить новый пароль" Grid.Row="4" Grid.Column="3" Margin="0 0 10 0"/>
+                <Button x:Name="ConfirmChanges_Button" Content="Сохранить изменения" Grid.Row="8" Grid.Column="3" Margin="10 0 10 0" Click="ConfirmChanges_Button_Click"/>
             </Grid>
         </Border>
     </Grid>

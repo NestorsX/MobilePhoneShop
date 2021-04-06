@@ -6,27 +6,37 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MobilePhoneShop"
         mc:Ignorable="d"
-        Title="RecycleBin" Height="450" Width="800">
+        Title="Корзина" Height="450" Width="800" MinHeight="450" MinWidth="800" MaxHeight="550" MaxWidth="900" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="11*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="Ваша корзина заказов:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Margin="5 0 0 0"/>
-        <ListBox x:Name="BinList_ListBox" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="5 0 0 0"/>
-        <Button x:Name="DeletePhoneFromOrder_Button" Content="Удалить выбранный" Grid.Row="4" Grid.Column="0" Margin="50 0 50 0" Click="DeletePhoneFromOrder_Button_Click"/>
-        <Button x:Name="CheckoutOrder_Button" Content="Оформить заказ" Grid.Row="5" Grid.Column="1" Margin="50 0 50 0" Click="CheckoutOrder_Button_Click"/>
-        <TextBlock x:Name="TotalCost_TextBlock" Text="Стоимость заказа:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="BinBG.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Border Background="White" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" MinWidth="650" MinHeight="350">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="DarkMagenta" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="11*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Ваша корзина заказов:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="5 0 0 0"/>
+                <ListBox x:Name="BinList_ListBox" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="5 0 0 0"/>
+                <Button x:Name="DeletePhoneFromOrder_Button" Content="Удалить выбранный" Grid.Row="4" Grid.Column="0" Margin="50 0 50 0" Click="DeletePhoneFromOrder_Button_Click"/>
+                <Button x:Name="CheckoutOrder_Button" Content="Оформить заказ" Grid.Row="5" Grid.Column="1" Margin="50 0 50 0" Click="CheckoutOrder_Button_Click"/>
+                <TextBlock x:Name="TotalCost_TextBlock" Text="Стоимость заказа:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
 
-        <TextBlock Text="Заполните информацию:" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"/>
-        <TextBox x:Name="Addres_textBox" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Адрес доставки*" FontSize="16" Margin="5 10 15 10"/>
+                <TextBlock Text="Заполните информацию:" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                <TextBox x:Name="Addres_textBox" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Адрес доставки*" FontSize="16" Margin="5 10 15 10"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

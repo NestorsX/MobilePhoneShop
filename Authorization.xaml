@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MobilePhoneShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MobilePhoneShop.MainWindow"
         mc:Ignorable="d"
-        Title="Авторизация" Height="600" Width="900" MinHeight="600" MinWidth="900" MaxHeight="800" MaxWidth="1100">
+        Title="Авторизация" Height="600" Width="900" MinHeight="600" MinWidth="900" MaxHeight="800" MaxWidth="1100" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="bg1.jpg" Stretch="UniformToFill"/>

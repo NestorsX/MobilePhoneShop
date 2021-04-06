@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -19,6 +21,31 @@ namespace MobilePhoneShop
 {
     public partial class AdminPanel : Window
     {
+        [DllImport("user32.dll")]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private const int GWL_STYLE = -16;
+
+        private const int WS_MAXIMIZEBOX = 0x10000; //maximize button
+        private IntPtr _windowHandle;
+        private void MainWindow_SourceInitialized(object sender, EventArgs e)
+        {
+            _windowHandle = new WindowInteropHelper(this).Handle;
+            DisableMaximizeButton();
+        }
+
+        protected void DisableMaximizeButton()
+        {
+            if (_windowHandle == null)
+                throw new InvalidOperationException("The window has not yet been completely initialized");
+
+            SetWindowLong(_windowHandle, GWL_STYLE, GetWindowLong(_windowHandle, GWL_STYLE) & ~WS_MAXIMIZEBOX);
+        }
+
+        //---------------------------------------------------------------------------------------------------------------
+
         AccessToDB acdb = new AccessToDB();
         AppContext apc = new AppContext();
         List<Phone> phones;
@@ -26,6 +53,7 @@ namespace MobilePhoneShop
         public AdminPanel()
         {
             InitializeComponent();
+            this.SourceInitialized += MainWindow_SourceInitialized;
             OS_ComboBox.ItemsSource = apc.os.ToList();
             DisplayTech_ComboBox.ItemsSource = apc.displayTeches.ToList();
             Accum_ComboBox.ItemsSource = apc.accs.ToList();
@@ -148,6 +176,13 @@ namespace MobilePhoneShop
                 ChoosePicture.Background = solidColor;
 
             }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow auth = new MainWindow();
+            auth.Show();
+            Close();
         }
     }
 }
