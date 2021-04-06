@@ -32,9 +32,9 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock x:Name="Entry_TextBlock" Text="Здравствуйте," VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20 0 0 0" FontSize="32" Grid.RowSpan="2"/>
                 <TextBox x:Name="secondName_TextBox" materialDesign:HintAssist.Hint="Фамилия" Grid.Row="2"/>
-                <TextBox x:Name="firstName_TextBox" materialDesign:HintAssist.Hint="Имя" Grid.Row="3"/>
+                <TextBox x:Name="firstName_TextBox" materialDesign:HintAssist.Hint="Имя*" Grid.Row="3"/>
                 <TextBox x:Name="thirdName_TextBox" materialDesign:HintAssist.Hint="Отчество" Grid.Row="4"/>
-                <TextBox x:Name="email_TextBox" materialDesign:HintAssist.Hint="e-mail" Grid.Row="5"/>
+                <TextBox x:Name="email_TextBox" materialDesign:HintAssist.Hint="e-mail*" Grid.Row="5"/>
                 <TextBox x:Name="telNumber_TextBox" materialDesign:HintAssist.Hint="Номер телефона" Grid.Row="6"/>
                 <PasswordBox x:Name="OldPassword_TextBox" materialDesign:HintAssist.Hint="Старый пароль" Grid.Row="2" Grid.Column="3"/>
                 <PasswordBox x:Name="NewPassword_TextBox" materialDesign:HintAssist.Hint="Новый пароль" Grid.Row="3" Grid.Column="3"/>

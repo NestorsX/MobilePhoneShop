@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 
 namespace MobilePhoneShop
 {
-    class Phone
+    public class Phone
     {
         [Key]
         public int phoneID { get; set; }

@@ -20,12 +20,13 @@ namespace MobilePhoneShop
         AppContext apc = new AppContext();
         List<Phone> phones;
         List<Phone> searchReq = new List<Phone>();
-        List<Phone> phonesInBin = new List<Phone>();
+        public List<Phone> phonesInBin;
         public MainForm()
         {
             InitializeComponent();
             phones = apc.phones.ToList();
             Phones_ListBox.ItemsSource = phones;
+            phonesInBin = new List<Phone>();
         }
 
         private void Profile_Button_Click(object sender, RoutedEventArgs e)
@@ -38,7 +39,10 @@ namespace MobilePhoneShop
 
         private void RecycleBin_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            RecycleBin recycleBin = new RecycleBin(phonesInBin);
+            recycleBin.Owner = this;
+            Hide();
+            recycleBin.ShowDialog();
         }
 
         private void Search_TextBox_TextChanged(object sender, TextChangedEventArgs e)

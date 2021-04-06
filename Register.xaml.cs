@@ -51,7 +51,7 @@ namespace MobilePhoneShop
             {
                 if (Regex.IsMatch(email, cond))
                 {
-                    if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0)
+                    if (login.Length > 0 && password.Length > 0 && password == repeatPassword && email.Length > 0 && firstName.Length>0)
                     {
                         acdb.Insert($"INSERT INTO [users] VALUES('{login}','{password}')");
                         acdb.Insert($"INSERT INTO [userDatas] VALUES('{secondName}', '{firstName}', '{thirdName}', '{telNumber}', '{email}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");

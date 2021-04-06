@@ -1,0 +1,32 @@
+﻿<Window x:Class="MobilePhoneShop.RecycleBin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MobilePhoneShop"
+        mc:Ignorable="d"
+        Title="RecycleBin" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Ваша корзина заказов:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Margin="5 0 0 0"/>
+        <ListBox x:Name="BinList_ListBox" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="5 0 0 0"/>
+        <Button x:Name="DeletePhoneFromOrder_Button" Content="Удалить выбранный" Grid.Row="4" Grid.Column="0" Margin="50 0 50 0" Click="DeletePhoneFromOrder_Button_Click"/>
+        <Button x:Name="CheckoutOrder_Button" Content="Оформить заказ" Grid.Row="5" Grid.Column="1" Margin="50 0 50 0" Click="CheckoutOrder_Button_Click"/>
+        <TextBlock x:Name="TotalCost_TextBlock" Text="Стоимость заказа:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
+
+        <TextBlock Text="Заполните информацию:" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"/>
+        <TextBox x:Name="Addres_textBox" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Адрес доставки*" FontSize="16" Margin="5 10 15 10"/>
+    </Grid>
+</Window>

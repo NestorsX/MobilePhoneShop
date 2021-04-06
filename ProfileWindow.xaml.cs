@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,22 +41,26 @@ namespace MobilePhoneShop
         }
         private void ConfirmChanges_Button_Click(object sender, RoutedEventArgs e)
         {
-
-            acdb.Insert($"UPDATE [userDatas] SET" + // ДОБАВИТЬ ПРОВЕРКИ ДЛЯ ТЕКСТБОКСОВ
-                $" [secondName] = '{secondName_TextBox.Text}', " +
-                $" [firstName] = '{firstName_TextBox.Text}', " +
-                $" [thirdName] = '{thirdName_TextBox.Text}', " +
-                $" [telNumber] = '{telNumber_TextBox.Text}', " +
-                $" [email] = '{email_TextBox.Text}' " +
-                $"WHERE [dataID] = '{currentUserData.dataID}'");
-            if(OldPassword_TextBox.Password.Length>0 && NewPassword_TextBox.Password.Length>0 && RetryOldPassword_TextBox.Password.Length>0)
+            string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
+            if (firstName_TextBox.Text.Length > 0 && email_TextBox.Text.Length > 0 && Regex.IsMatch(email_TextBox.Text, cond))
             {
-                if(OldPassword_TextBox.Password == currentUser.Password && NewPassword_TextBox.Password == RetryOldPassword_TextBox.Password)
+                acdb.Insert($"UPDATE [userDatas] SET" + // ДОБАВИТЬ ПРОВЕРКИ ДЛЯ ТЕКСТБОКСОВ
+                    $" [secondName] = '{secondName_TextBox.Text}', " +
+                    $" [firstName] = '{firstName_TextBox.Text}', " +
+                    $" [thirdName] = '{thirdName_TextBox.Text}', " +
+                    $" [telNumber] = '{telNumber_TextBox.Text}', " +
+                    $" [email] = '{email_TextBox.Text}' " +
+                    $"WHERE [dataID] = '{currentUserData.dataID}'");
+                Entry_TextBlock.Text = "Здравствуйте, " + firstName_TextBox.Text + " " + thirdName_TextBox.Text;
+                if (OldPassword_TextBox.Password.Length > 0 && NewPassword_TextBox.Password.Length > 0 && RetryOldPassword_TextBox.Password.Length > 0)
                 {
-                    acdb.Insert($"UPDATE [users] SET [password] = '{NewPassword_TextBox.Password}' WHERE [userID] = '{currentUser.userID}'");
+                    if (OldPassword_TextBox.Password == currentUser.Password && NewPassword_TextBox.Password == RetryOldPassword_TextBox.Password)
+                    {
+                        acdb.Insert($"UPDATE [users] SET [password] = '{NewPassword_TextBox.Password}' WHERE [userID] = '{currentUser.userID}'");
+                    }
                 }
+                MessageBox.Show("Данные обновлены успешно");
             }
-            MessageBox.Show("Данные обновлены успешно");
         }
 
         private void OnWindowClosing(object sender, CancelEventArgs e)
