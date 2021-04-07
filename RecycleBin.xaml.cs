@@ -61,6 +61,7 @@ namespace MobilePhoneShop
             {
                 BinList_ListBox.ItemsSource = null;
                 BinList_ListBox.Items.Clear();
+                order = new List<Phone>();
             }
             else
             {
@@ -90,7 +91,7 @@ namespace MobilePhoneShop
                         acdb.Insert($"INSERT INTO [orders] VALUES({MainWindow.currentUserID}, {phone.phoneID}, {phone.Cost}, '{Addres_textBox.Text}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f")}')");
                     }
                     MainForm main = Owner as MainForm;
-                    main.phonesInBin = null;
+                    main.phonesInBin = new List<Phone>();
                     MessageBox.Show("Заказ создан успешно!");
                     Close();
                 }
@@ -107,6 +108,9 @@ namespace MobilePhoneShop
             {
                 order.RemoveAt(BinList_ListBox.SelectedIndex);
                 MessageBox.Show("Товар удален из корзины");
+                BinList_ListBox.ItemsSource = null;
+                BinList_ListBox.Items.Clear();
+                BinList_ListBox.ItemsSource = order;
             }
             else
                 MessageBox.Show("Выберите товар, который хотите удалить");

@@ -82,6 +82,7 @@
     <Compile Include="MainForm.xaml.cs">
       <DependentUpon>MainForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Os.cs" />
     <Compile Include="Phone.cs" />
     <Compile Include="ProfileWindow.xaml.cs">

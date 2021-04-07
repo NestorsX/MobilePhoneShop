@@ -16,6 +16,7 @@ namespace MobilePhoneShop
         public DbSet<DisplayTech> displayTeches { get; set; }
         public DbSet<Acc> accs { get; set; }
         public DbSet<Phone> phones { get; set; }
+        public DbSet<Order> orders { get; set; }
         public AppContext() : base("DBConnection") { }
     }
 }

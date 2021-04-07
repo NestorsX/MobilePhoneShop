@@ -99,7 +99,6 @@ namespace MobilePhoneShop
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
             Owner.Show();
-            Application.Current.MainWindow.Show();
         }
         private void SendRegisterNoticeMail(string email)
         {

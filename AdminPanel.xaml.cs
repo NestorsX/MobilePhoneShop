@@ -49,6 +49,7 @@ namespace MobilePhoneShop
         AccessToDB acdb = new AccessToDB();
         AppContext apc = new AppContext();
         List<Phone> phones;
+        List<Order> orders;
         string imagePath;
         public AdminPanel()
         {
@@ -59,6 +60,9 @@ namespace MobilePhoneShop
             Accum_ComboBox.ItemsSource = apc.accs.ToList();
             Phones_ListBox.ItemsSource = apc.phones.ToList();
             phones = apc.phones.ToList();
+            orders = apc.orders.ToList();
+            Order_ListBox.ItemsSource = orders;
+
         }
 
         private void AddMobilePhone_Click(object sender, RoutedEventArgs e)
