@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:HelixToolkit="http://helix-toolkit.org/wpf"
         xmlns:local="clr-namespace:MobilePhoneShop"
         mc:Ignorable="d"
         Title="Главная" Height="650" Width="1200" MinHeight="650" MinWidth="1200" MaxHeight="750" MaxWidth="1300" WindowStartupLocation="CenterScreen">
@@ -72,6 +73,19 @@
                 <TextBlock x:Name="PhoneCameras_TextBlock" Grid.Row="4" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10 0 0 0" Height="20"/>
                 <TextBlock x:Name="PhoneAccumulator_TextBlock" Grid.Row="5" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10 0 0 0" Height="20"/>
                 <Button x:Name="AddToBin_Button" Content="Добавить в корзину" Grid.Row="6" Margin="70,0,70,5" Visibility="Hidden" Click="AddToBin_Button_Click" Height="Auto"/>
+                <HelixToolkit:HelixViewport3D Grid.Row="0" x:Name="myView" ZoomExtentsWhenLoaded="True" Margin="-95,-178,92,10" RenderTransformOrigin="1,1">
+                    <HelixToolkit:HelixViewport3D.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="90" Y="180"/>
+                        </TransformGroup>
+                    </HelixToolkit:HelixViewport3D.RenderTransform>
+                    <HelixToolkit:SunLight/>
+                    <ModelVisual3D x:Name="foo"/>
+                    <HelixToolkit:GridLinesVisual3D Width="0" Length="0" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
+                </HelixToolkit:HelixViewport3D>
             </Grid>
         </Border>
         <Border Background="White" CornerRadius="20" Margin="10,10,10,10" Grid.Row="1" Grid.Column="1">

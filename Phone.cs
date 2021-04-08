@@ -132,9 +132,5 @@ namespace MobilePhoneShop
         {
             return models;
         }
-        //public string Print()
-        //{
-        //    return models + Environment.NewLine
-        //}
     }
 }
